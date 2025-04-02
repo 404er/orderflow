@@ -85,6 +85,7 @@ export class OrderFlowAggregator {
       aggressiveAsk: 0,
       volume: 0,
       volumeDelta: 0,
+      open: 0,
       high: 0,
       low: Number.MAX_SAFE_INTEGER,
       close: 0,
@@ -109,6 +110,11 @@ export class OrderFlowAggregator {
     }
 
     const tradeQty = assetQty;
+
+    // Set open price if it's the first trade in this candle
+    if (this.activeCandle.volume === 0) {
+      this.activeCandle.open = price;
+    }
 
     this.activeCandle.volume += tradeQty;
 

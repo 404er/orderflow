@@ -45,6 +45,9 @@ export class FootPrintCandle {
   aggressiveAsk: number;
 
   @Column('double precision')
+  open: number;
+
+  @Column('double precision')
   high: number;
 
   @Column('double precision')
